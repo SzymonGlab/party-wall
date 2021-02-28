@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  json-server:
+    container_name: API
+    image: vimagick/json-server
+    command: -H 0.0.0.0 -p 3001 db.json
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data:/data
+    restart: always
+
+  frontend:
+    container_name: frontend
+    restart: always
+    command: yarn start
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    volumes:
+      - "../frontend:/app"
+      - "/app/node_modules"
+    ports:
+      - "3000:3000"
+    links:
+      - json-server
