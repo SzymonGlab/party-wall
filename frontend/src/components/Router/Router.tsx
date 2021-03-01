@@ -5,6 +5,7 @@ import { LogIn } from '../../views/LogIn';
 import { SignUp } from '../../views/SignUp/SignUp';
 import { List } from '../../views/List';
 import { AuthContext, AuthProvider } from '../AuthProvider';
+import { ToastProvider } from '../ToastProvider';
 
 type PrivateRouteProps = RouteProps & { component: React.FC };
 
@@ -20,12 +21,11 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: RouteComponent, 
 
 export const Router: React.FC = () => (
     <AuthProvider>
+        <ToastProvider />
         <BrowserRouter>
-            <div>
-                <PrivateRoute exact path="/" component={List} />
-                <Route exact path="/login" component={LogIn} />
-                <Route exact path="/signup" component={SignUp} />
-            </div>
+            <PrivateRoute exact path="/" component={List} />
+            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/signup" component={SignUp} />
         </BrowserRouter>
     </AuthProvider>
 );

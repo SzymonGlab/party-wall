@@ -1,5 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+
+import { UserForm } from '../../components/UserForm';
+import { signUp } from '../../utils/userHandler';
 
 export const SignUp: React.FC = () => {
-    return <h1> SIGN UP </h1>;
+    const history = useHistory();
+    const handleSignUp = useCallback((e) => signUp(e, history), [history]);
+
+    const formProps = {
+        title: 'Sign up',
+        onViewChange: {
+            action: () => history.push('/login'),
+            text: 'Already have an account?',
+        },
+        onSubmit: {
+            action: handleSignUp,
+            text: 'Sign up',
+        },
+    };
+
+    return <UserForm {...formProps} />;
 };
