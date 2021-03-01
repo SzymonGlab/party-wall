@@ -1,0 +1,23 @@
+#form-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+#form-wrapper {
+    background-color: #f5f5f5;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 600px;
+    height: 400px;
+    padding: 40px;
+}
+
+#on-submit-button {
+    margin-left: auto;
+}
+
+#buttons-wrapper {
+    display: flex;
+}
