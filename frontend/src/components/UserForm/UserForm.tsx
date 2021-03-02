@@ -1,18 +1,9 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 
+import { UserFormProps } from '../../types';
+
 import './userForm.css';
-
-type FormType = {
-    text: string;
-    action: (e: React.SyntheticEvent) => void;
-};
-
-type UserFormProps = {
-    title: string;
-    onSubmit: FormType;
-    onViewChange: FormType;
-};
 
 export const UserForm: React.FC<UserFormProps> = ({ title, onSubmit, onViewChange }) => (
     <div id="form-container">
