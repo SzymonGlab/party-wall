@@ -3,7 +3,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 import { AuthContext } from '../../components/AuthProvider';
 import { UserForm } from '../../components/UserForm';
-import { signIn } from '../../utils/userHandler';
+import { signIn } from '../../utils/userUtils';
 
 export const LogIn: React.FC = () => {
     const { currentUser } = useContext(AuthContext);

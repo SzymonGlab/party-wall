@@ -1,10 +1,17 @@
 import React from 'react';
+
 import { Router } from './components/Router';
+import { AuthProvider } from './components/AuthProvider';
+import { ToastProvider } from './components/ToastProvider';
+
 import './App.css';
 
 const App: React.FC = () => (
     <div className="App">
-        <Router />
+        <AuthProvider>
+            <Router />
+            <ToastProvider />
+        </AuthProvider>
     </div>
 );
 

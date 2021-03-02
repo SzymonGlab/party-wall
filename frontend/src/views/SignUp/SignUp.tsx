@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { UserForm } from '../../components/UserForm';
-import { signUp } from '../../utils/userHandler';
+import { signUp } from '../../utils/userUtils';
 
 export const SignUp: React.FC = () => {
     const history = useHistory();

@@ -3,9 +3,8 @@ import { BrowserRouter, Redirect, Route, RouteProps } from 'react-router-dom';
 
 import { LogIn } from '../../views/LogIn';
 import { SignUp } from '../../views/SignUp/SignUp';
-import { List } from '../../views/List';
-import { AuthContext, AuthProvider } from '../AuthProvider';
-import { ToastProvider } from '../ToastProvider';
+import { ListView } from '../../views/List';
+import { AuthContext } from '../AuthProvider';
 
 type PrivateRouteProps = RouteProps & { component: React.FC };
 
@@ -20,12 +19,9 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: RouteComponent, 
 };
 
 export const Router: React.FC = () => (
-    <AuthProvider>
-        <ToastProvider />
-        <BrowserRouter>
-            <PrivateRoute exact path="/" component={List} />
-            <Route exact path="/login" component={LogIn} />
-            <Route exact path="/signup" component={SignUp} />
-        </BrowserRouter>
-    </AuthProvider>
+    <BrowserRouter>
+        <PrivateRoute exact path="/" component={ListView} />
+        <Route exact path="/login" component={LogIn} />
+        <Route exact path="/signup" component={SignUp} />
+    </BrowserRouter>
 );

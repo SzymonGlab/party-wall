@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-const config = {
+const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
     authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
     projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
@@ -10,4 +10,6 @@ const config = {
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-export const app = firebase.initializeApp(config);
+export const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+export const API_URL = 'http://0.0.0.0:3001';
