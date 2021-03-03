@@ -10,10 +10,10 @@ export const UserForm: React.FC<UserFormProps> = ({ title, onSubmit, onViewChang
         <div id="form-wrapper">
             <h4>{title}</h4>
             <Form onSubmit={onSubmit.action}>
-                <Form.Group controlId="email">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">We`ll never share your email with anyone else.</Form.Text>
+                <Form.Group controlId="username">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" placeholder="Enter username" />
+                    <Form.Text className="text-muted">Other users will see you username.</Form.Text>
                 </Form.Group>
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
