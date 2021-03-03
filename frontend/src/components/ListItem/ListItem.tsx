@@ -1,15 +1,24 @@
 import React from 'react';
+
 import { UserDataType } from '../../types';
 
 export const ListItem: React.FC<{
     userData: UserDataType;
 }> = ({ userData }) => {
-    const { food, drinks, name } = userData;
+    const { food, drink, name } = userData;
 
     return (
         <div>
-            <p>{food[0]?.name ?? 'XD'}</p>
-            <p>{drinks[0]?.name ?? 'XD'}</p>
+            {food.map((foodItem) => (
+                <div key={foodItem.id}>
+                    <p>{foodItem.name}</p>
+                </div>
+            ))}
+            {drink.map((drinkItem) => (
+                <div key={drinkItem.id}>
+                    <p>{drinkItem.name}</p>
+                </div>
+            ))}
             <p>{name}</p>
         </div>
     );

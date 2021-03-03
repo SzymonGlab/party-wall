@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { firebaseApp } from '../../config';
 import { AuthContextProps, CurrentUserType } from '../../types';
+import { Loader } from '../Loader';
 
 export const AuthContext = React.createContext<Partial<AuthContextProps>>({});
 
@@ -17,7 +18,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     }, []);
 
     if (pending) {
-        return <>Loading...</>;
+        return <Loader />;
     }
 
     return (
