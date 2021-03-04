@@ -8,22 +8,21 @@ export const isFood = (sustenance: any): sustenance is FoodType => sustenance.de
 
 export const sendAddRequest = async (e: any, sustenance: 'food' | 'drink', userId: string): Promise<any> => {
     e.preventDefault();
-    let newItem = {};
+    let newItem: Record<string, any> = {
+        id: uuidv4(),
+        name: e.target.elements.name.value,
+        price: e.target.elements.price.value,
+        quantity: e.target.elements.quantity.value,
+        userId,
+    };
     if (sustenance === 'food') {
         newItem = {
-            id: uuidv4(),
-            name: e.target.elements.name.value,
+            ...newItem,
             weight: e.target.elements.weight.value,
             description: e.target.elements.description.value,
-            userId,
         };
     } else {
-        newItem = {
-            id: uuidv4(),
-            name: e.target.elements.name.value,
-            volume: e.target.elements.volume.value,
-            userId,
-        };
+        newItem = { ...newItem, volume: e.target.elements.volume.value };
     }
 
     try {
