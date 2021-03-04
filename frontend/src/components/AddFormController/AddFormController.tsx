@@ -13,12 +13,12 @@ const radios: RadioType[] = [
     {
         name: 'Food',
         value: 'food',
-        fields: ['Name', 'Description', 'Weight'],
+        fields: ['Name', 'Description', 'Weight', 'Quantity', 'Price'],
     },
     {
         name: 'Drink',
         value: 'drink',
-        fields: ['Name', 'Volume'],
+        fields: ['Name', 'Volume', 'Quantity', 'Price'],
     },
 ];
 
