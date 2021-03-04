@@ -1,0 +1,32 @@
+#collection-name {
+    border-bottom: 1px solid #f1f1f1f1;
+    padding-bottom: 5px;
+}
+
+.list-item {
+    align-items: center;
+    border-radius: 10px;
+    background-color: #001233;
+    display: flex;
+    height: 55px;
+    margin-top: 7px;
+    padding: 15px;
+}
+
+#remove-button {
+    margin-left: auto;
+}
+
+#panel-username {
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+
+#name-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 20px;
+}
+
+#single-list-wrapper {
+    margin-bottom: 20px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { UserDataType } from '../../types';
+import { CustomListGroup } from './components/CustomListGroup';
+import './ListItem.css';
 
 export const ListItem: React.FC<{
     userData: UserDataType;
@@ -8,25 +10,16 @@ export const ListItem: React.FC<{
     const { food, drink, name } = userData;
 
     return (
-        <div>
-            {food.map((foodItem) => (
-                <div key={foodItem.id}>
-                    <p>{foodItem.name}</p>
-                    <p>{foodItem.weight}</p>
-                    <p>{foodItem.description}</p>
-                    <p>{foodItem.price}</p>
-                    <p>{foodItem.quantity}</p>
-                </div>
-            ))}
-            {drink.map((drinkItem) => (
-                <div key={drinkItem.id}>
-                    <p>{drinkItem.name}</p>
-                    <p>{drinkItem.volume}</p>
-                    <p>{drinkItem.price}</p>
-                    <p>{drinkItem.quantity}</p>
-                </div>
-            ))}
-            <p>{name}</p>
+        <div id="list-element-wrapper">
+            {(food.length > 0 || drink.length > 0) && (
+                <>
+                    <p id="list-username">{name}</p>
+                    <div id="list-items-wrapper">
+                        <CustomListGroup items={food} title="Food" />
+                        <CustomListGroup items={drink} title="Drink" />
+                    </div>
+                </>
+            )}
         </div>
     );
 };

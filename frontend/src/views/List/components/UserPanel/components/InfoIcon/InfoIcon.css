@@ -1,0 +1,20 @@
+#icon {
+    margin-right: 5px;
+}
+
+#tooltip-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tooltip-content {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    font-size: 0.9rem;
+    z-index: 1000;
+}
+
+#tooltip-header {
+    font-size: 1rem;
+}

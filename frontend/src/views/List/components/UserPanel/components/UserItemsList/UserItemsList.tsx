@@ -3,19 +3,19 @@ import { Button } from 'react-bootstrap';
 import produce, { Draft } from 'immer';
 
 import { DrinkType, FoodType, SustenanceType, UserDataType } from '../../../../../../types';
-import { Loader } from '../../../../../../components/Loader';
 import { isFood, sendDeleteRequest } from '../../../../../../utils/productUtils';
-import { CurrentUserContext } from '../../UserPanel';
+import { Loader } from '../../../../../../components/Loader';
+import { CurrentUserContext } from '../..';
+import { InfoIcon } from '../InfoIcon';
 
-export const UserListItem: React.FC = () => {
+import './UserItemsList.css';
+
+export const UserItemsList: React.FC<{ items: FoodType[] | DrinkType[]; title: string }> = ({ items, title }) => {
     const { userData, setUserData } = useContext(CurrentUserContext);
 
     if (!userData || !setUserData) {
         return <Loader />;
     }
-
-    const { food, drink, name } = userData;
-
     const handleRemove = async (sustenance: SustenanceType) => {
         let newUserData = userData;
         await sendDeleteRequest(sustenance);
@@ -33,20 +33,20 @@ export const UserListItem: React.FC = () => {
     };
 
     return (
-        <div>
-            {food.map((foodItem) => (
-                <div key={foodItem.id}>
-                    <p>{foodItem.name}</p>
-                    <Button onClick={() => handleRemove(foodItem)}>Remove</Button>
+        <div id="single-list-wrapper">
+            <h5 id="collection-name"> {title}: </h5>
+            {items.length === 0 && <div className="list-item"> Your list is empty :(</div>}
+            {(items as any[]).map((item: FoodType | DrinkType) => (
+                <div className="list-item" key={item.id}>
+                    <p>{item.name}</p>
+                    <div className="action-wrapper">
+                        <InfoIcon item={item} />
+                        <Button variant="danger" id="remove-button" onClick={() => handleRemove(item)}>
+                            x
+                        </Button>
+                    </div>
                 </div>
             ))}
-            {drink.map((drinkItem) => (
-                <div key={drinkItem.id}>
-                    <p>{drinkItem.name}</p>
-                    <Button onClick={() => handleRemove(drinkItem)}>Remove</Button>
-                </div>
-            ))}
-            <p>{name}</p>
         </div>
     );
 };

@@ -4,9 +4,11 @@ import { AddFormController } from '../../../../components/AddFormController';
 import { AuthContext } from '../../../../components/AuthProvider';
 import { CustomModal } from '../../../../components/CustomModal';
 import { UserDataType } from '../../../../types';
+import { Loader } from '../../../../components/Loader';
 import { fetchUserData } from '../../../../utils/fetchUtils';
 import { signOut } from '../../../../utils/userUtils';
-import { UserListItem } from './components/UserListItem';
+import { Logo } from '../../../../components/Logo';
+import { UserListsController } from './components/UserListsController';
 
 import './UserPanel.css';
 
@@ -28,15 +30,24 @@ export const UserPanel: React.FC = () => {
         fetch();
     }, []);
 
+    if (!currentUser || !userData || !setUserData) {
+        return <Loader />;
+    }
+
     return (
         <CurrentUserContext.Provider value={{ userData, setUserData }}>
+            <CustomModal onCancel={() => setIsModalOpen(false)} isDisplayed={isModalOpen}>
+                <AddFormController closeModal={() => setIsModalOpen(false)} />
+            </CustomModal>
             <div id="user-panel-wrapper">
-                <CustomModal onCancel={() => setIsModalOpen(false)} isDisplayed={isModalOpen}>
-                    <AddFormController closeModal={() => setIsModalOpen(false)} />
-                </CustomModal>
-                <UserListItem />
-                <Button onClick={() => setIsModalOpen(true)}>Add item</Button>
-                <Button variant="dark" onClick={signOut}>
+                <Logo />
+                <div id="user-pic" />
+                <p id="panel-username">{userData.name}</p>
+                <Button id="add-item" variant="info" onClick={() => setIsModalOpen(true)}>
+                    ADD
+                </Button>
+                <UserListsController />
+                <Button id="sign-out" variant="info" onClick={signOut} block>
                     Sign out
                 </Button>
             </div>

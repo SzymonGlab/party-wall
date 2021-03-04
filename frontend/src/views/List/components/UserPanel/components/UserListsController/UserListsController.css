@@ -1,0 +1,12 @@
+#wrapper {
+    color: #f1f1f1f1;
+    margin: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+#wrapper .btn {
+    padding: 0.05rem 0.5rem;
+    height: 30px;
+    width: 30px;
+}

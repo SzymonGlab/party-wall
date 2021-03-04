@@ -9,6 +9,8 @@ import { AddForm } from './components/AddForm';
 import { CurrentUserContext } from '../../views/List/components/UserPanel';
 import { Loader } from '../Loader';
 
+import './AddFormController.css';
+
 const radios: RadioType[] = [
     {
         name: 'Food',
@@ -49,8 +51,8 @@ export const AddFormController: React.FC<{ closeModal: () => void }> = ({ closeM
     };
 
     return (
-        <>
-            <ButtonGroup toggle>
+        <div id="modal-content">
+            <ButtonGroup id="toggle-buttons" toggle>
                 {radios.map((radio, idx) => (
                     <ToggleButton
                         key={idx}
@@ -65,7 +67,7 @@ export const AddFormController: React.FC<{ closeModal: () => void }> = ({ closeM
                     </ToggleButton>
                 ))}
             </ButtonGroup>
-            <AddForm title={radioValue.name} fields={radioValue.fields} onSubmit={handleSubmit} />
-        </>
+            <AddForm fields={radioValue.fields} onSubmit={handleSubmit} />
+        </div>
     );
 };
