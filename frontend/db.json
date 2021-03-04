@@ -123,6 +123,10 @@
     {
       "name": "testowy",
       "id": "snuY70aaMPT7GyeGySBHL3Ykg1s1"
+    },
+    {
+      "name": "testowy2",
+      "id": "p7AInpde7IYhKlnE5adAGoJ8O9I2"
     }
   ],
   "food": [
@@ -143,15 +147,6 @@
       "userId": 10,
       "price": 1,
       "quantity": 2
-    },
-    {
-      "name": "chips",
-      "description": "do pariatur est id commodo occaecat excepteur",
-      "weight": 300,
-      "id": 2,
-      "userId": 30,
-      "price": 12,
-      "quantity": 3
     },
     {
       "name": "pasta",
@@ -469,15 +464,6 @@
       "quantity": 2
     },
     {
-      "name": "pasta",
-      "description": "do ex non aliquip aliquip occaecat anim",
-      "weight": 231,
-      "id": 38,
-      "userId": 30,
-      "price": 2,
-      "quantity": 2
-    },
-    {
       "name": "pizza",
       "description": "amet nulla laboris non aliqua excepteur anim",
       "weight": 255,
@@ -559,15 +545,6 @@
       "quantity": 1
     },
     {
-      "name": "chips",
-      "description": "reprehenderit ad ut magna nostrud culpa voluptate",
-      "weight": 350,
-      "id": 48,
-      "userId": 30,
-      "price": 7,
-      "quantity": 4
-    },
-    {
       "name": "pasta",
       "description": "amet aliqua tempor nisi Lorem nulla incididunt",
       "weight": 300,
@@ -647,6 +624,15 @@
       "userId": "snuY70aaMPT7GyeGySBHL3Ykg1s1",
       "weight": "20",
       "description": "random description"
+    },
+    {
+      "id": "e406a520-9fa2-4659-893c-f89712853cf1",
+      "name": "Food test 2",
+      "price": "20",
+      "quantity": "20",
+      "userId": "snuY70aaMPT7GyeGySBHL3Ykg1s1",
+      "weight": "20",
+      "description": "desc"
     }
   ],
   "drink": [
@@ -788,14 +774,6 @@
     },
     {
       "name": "coke",
-      "volume": 190,
-      "id": 17,
-      "userId": 30,
-      "price": 18,
-      "quantity": 4
-    },
-    {
-      "name": "coke",
       "volume": 101,
       "id": 18,
       "userId": 1,
@@ -808,14 +786,6 @@
       "id": 19,
       "userId": 8,
       "price": 14,
-      "quantity": 2
-    },
-    {
-      "name": "fanta",
-      "volume": 158,
-      "id": 20,
-      "userId": 30,
-      "price": 16,
       "quantity": 2
     },
     {
@@ -899,14 +869,6 @@
       "quantity": 5
     },
     {
-      "name": "fanta",
-      "volume": 129,
-      "id": 31,
-      "userId": 30,
-      "price": 7,
-      "quantity": 2
-    },
-    {
       "name": "sprite",
       "volume": 188,
       "id": 32,
@@ -969,14 +931,6 @@
       "userId": 10,
       "price": 20,
       "quantity": 2
-    },
-    {
-      "name": "water",
-      "volume": 190,
-      "id": 40,
-      "userId": 30,
-      "price": 4,
-      "quantity": 4
     },
     {
       "name": "water",
@@ -1203,14 +1157,6 @@
       "quantity": 3
     },
     {
-      "name": "fanta",
-      "volume": 153,
-      "id": 69,
-      "userId": 30,
-      "price": 8,
-      "quantity": 3
-    },
-    {
       "name": "sprite",
       "volume": 260,
       "id": 70,
@@ -1329,14 +1275,6 @@
       "userId": 8,
       "price": 13,
       "quantity": 3
-    },
-    {
-      "id": "fd22a21d-e1f8-4ef0-920b-5e965524ad6e",
-      "name": "Drink test",
-      "price": "20",
-      "quantity": "3",
-      "userId": "snuY70aaMPT7GyeGySBHL3Ykg1s1",
-      "volume": "200"
     }
   ]
 }
