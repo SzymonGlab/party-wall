@@ -40,13 +40,12 @@ export const sendAddRequest = async (e: any, sustenance: 'food' | 'drink', userI
     return newItem;
 };
 
-export const sendDeleteRequest = async (sustenance: SustenanceType): Promise<void> => {
+export const sendDeleteRequest = async (
+    sustenance: SustenanceType,
+    sustenanceOption: 'food' | 'drink',
+): Promise<void> => {
     try {
-        if (isFood(sustenance)) {
-            await axios.delete(`${API_URL}/food/${sustenance.id}`);
-        } else {
-            await axios.delete(`${API_URL}/drink/${sustenance.id}`);
-        }
+        await axios.delete(`${API_URL}/${sustenanceOption}/${sustenance.id}`);
     } catch (error) {
         toast.error(`REMOVING ITEM: ${error.message}`);
     }

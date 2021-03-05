@@ -3,13 +3,15 @@ version: "3"
 services:
   json-server:
     container_name: API
-    image: vimagick/json-server
-    command: -H 0.0.0.0 -p 3001 db.json
-    ports:
-      - "3001:3001"
+    restart: always
+    command: yarn json-server -H ${REACT_APP_API_HOST} --watch db.json --port ${REACT_APP_API_PORT}
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
     volumes:
       - ./data:/data
-    restart: always
+    ports:
+      - "3001:3001"
 
   frontend:
     container_name: frontend

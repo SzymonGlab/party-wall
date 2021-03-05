@@ -1,0 +1,4 @@
+FROM node:14
+WORKDIR /app
+COPY docker/data/db.json ./
+RUN yarn add json-server
