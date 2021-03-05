@@ -9,27 +9,30 @@ name and volume. Both drink and food have price and quantity.
 ## Functionality
 
 ### As an anonymous user you can:
+
 - login/register using username and password
 
-
 ### As an authenticated user you can:
+
 - see one list of items of both types: food and drinks for all users
 - create a new item (both types)
 - remove item
 
 ## Setup
 
-To run this project `.env` file is required to be placed in `frontend`. It should contain your firebase application config, which is required for `SIGN UP/IN` functionality to work.
+To run this project `.env` file is required to be placed in `docker` directory. It should contain your firebase application config, which is required for `SIGN UP/IN` functionality to work.
 
 ### .env file structure
+
 ```javascript
 {
-  REACT_APP_FIREBASE_KEY=/YOUR_KEY/
-  REACT_APP_FIREBASE_DOMAIN=/YOUR_DOMAIN/
-  REACT_APP_FIREBASE_PROJECT_ID=/YOUR_PROJECT_ID/
-  REACT_APP_FIREBASE_STORAGE_BUCKET=/YOUR_STORAGE_BUCKET/
-  REACT_APP_FIREBASE_APP_ID=/YOUR_APP_ID/
-  REACT_APP_API_MOCK_PORT=/API_MOCK_PORT_OF_YOUR_CHOICE/
+  REACT_APP_FIREBASE_KEY = /YOUR_KEY/;
+  REACT_APP_FIREBASE_DOMAIN = /YOUR_DOMAIN/;
+  REACT_APP_FIREBASE_PROJECT_ID = /YOUR_PROJECT_ID/;
+  REACT_APP_FIREBASE_STORAGE_BUCKET = /YOUR_STORAGE_BUCKET/;
+  REACT_APP_FIREBASE_APP_ID = /YOUR_APP_ID/;
+  REACT_APP_API_HOST = "0.0.0.0";
+  REACT_APP_API_PORT = "3001";
 }
 ```
 
@@ -38,11 +41,8 @@ To run this project `.env` file is required to be placed in `frontend`. It shoul
 ### How to start application?
 
 To run application you need to:
-- move to `frontened` directory
-- install packages `yarn install`
-- start API mock server (`yarn json-server --port /API_MOCK_PORT_OF_YOUR_CHOICE/`)
-- start frontened application (`yarn start`)
 
-
-
-
+- go to `docker` directory
+- build docker images with `docker-compose build`
+- start application with `docker-compose up -d`
+- visit `http://localhost:3000`
