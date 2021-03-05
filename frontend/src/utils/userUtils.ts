@@ -4,18 +4,18 @@ import { toast } from 'react-toastify';
 import { API_URL, firebaseApp } from '../config';
 import { AccountActionType } from '../types';
 
-export const signIn: AccountActionType = async (e, history) => {
+export const signIn: AccountActionType = async (e, history): Promise<void> => {
     e.preventDefault();
     const { username, password } = e.target.elements;
     try {
         await firebaseApp.auth().signInWithEmailAndPassword(`${username.value}@partywall.com`, password.value);
         history.push('/');
     } catch (error) {
-        toast.error(error.message);
+        toast.error(`SIGN IN: ${error.message}`);
     }
 };
 
-export const signUp: AccountActionType = async (e, history) => {
+export const signUp: AccountActionType = async (e, history): Promise<void> => {
     e.preventDefault();
     const { username, password } = e.target.elements;
     try {
@@ -25,7 +25,7 @@ export const signUp: AccountActionType = async (e, history) => {
         axios.post(`${API_URL}/users`, { name: username.value, id: resp.user?.uid });
         history.push('/');
     } catch (error) {
-        toast.error(error.message);
+        toast.error(`SIGN UP: ${error.message}`);
     }
 };
 

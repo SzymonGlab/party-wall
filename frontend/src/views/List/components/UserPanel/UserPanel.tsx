@@ -36,7 +36,7 @@ export const UserPanel: React.FC = () => {
 
     return (
         <CurrentUserContext.Provider value={{ userData, setUserData }}>
-            <CustomModal onCancel={() => setIsModalOpen(false)} isDisplayed={isModalOpen}>
+            <CustomModal title="Add item" onCancel={() => setIsModalOpen(false)} isDisplayed={isModalOpen}>
                 <AddFormController closeModal={() => setIsModalOpen(false)} />
             </CustomModal>
             <div id="user-panel-wrapper">

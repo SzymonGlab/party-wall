@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { UNITS } from '../../../../utils/productUtils';
 
 import './AddForm.css';
 
@@ -11,7 +12,9 @@ export const AddForm: React.FC<{
         {fields.map((field: string) => (
             <div key={field}>
                 <Form.Group controlId={field.toLowerCase()}>
-                    <Form.Label>{field}</Form.Label>
+                    <Form.Label>
+                        {field} {UNITS[field.toLowerCase()] ? `(${UNITS[field.toLowerCase()]})` : ''}
+                    </Form.Label>
                     <Form.Control placeholder={`${field} ...`} />
                 </Form.Group>
             </div>

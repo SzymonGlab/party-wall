@@ -6,6 +6,12 @@ import { FoodType, SustenanceType } from '../types';
 
 export const isFood = (sustenance: any): sustenance is FoodType => sustenance.description !== undefined;
 
+export const UNITS: Record<string, string> = {
+    price: '$',
+    weight: 'grams',
+    volume: 'ml',
+};
+
 export const sendAddRequest = async (e: any, sustenance: 'food' | 'drink', userId: string): Promise<any> => {
     e.preventDefault();
     let newItem: Record<string, any> = {
@@ -28,8 +34,7 @@ export const sendAddRequest = async (e: any, sustenance: 'food' | 'drink', userI
     try {
         await axios.post(`${API_URL}/${sustenance}`, newItem);
     } catch (error) {
-        toast.error(error.message);
-        throw error;
+        toast.error(`ADDING ITEM: ${error.message}`);
     }
 
     return newItem;
@@ -43,7 +48,6 @@ export const sendDeleteRequest = async (sustenance: SustenanceType): Promise<voi
             await axios.delete(`${API_URL}/drink/${sustenance.id}`);
         }
     } catch (error) {
-        toast.error(error.message);
-        throw error;
+        toast.error(`REMOVING ITEM: ${error.message}`);
     }
 };

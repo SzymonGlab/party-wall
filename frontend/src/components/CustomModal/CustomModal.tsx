@@ -4,12 +4,13 @@ import { Modal } from 'react-bootstrap';
 type CustomModalType = {
     onCancel: () => void;
     isDisplayed: boolean;
+    title: string;
 };
 
-export const CustomModal: React.FC<CustomModalType> = ({ isDisplayed, children, onCancel }) => (
+export const CustomModal: React.FC<CustomModalType> = ({ title, isDisplayed, children, onCancel }) => (
     <Modal id="modal-wrapper" show={isDisplayed} onHide={onCancel}>
         <Modal.Header closeButton>
-            <Modal.Title>Add new item</Modal.Title>
+            <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{children}</Modal.Body>
     </Modal>

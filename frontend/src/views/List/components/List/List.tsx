@@ -1,7 +1,7 @@
 import React, { ReactText } from 'react';
 import ReactList from 'react-list';
 
-import { ListItem } from '../../../../components/ListItem';
+import { ListItem } from './components/ListItem';
 import { UserDataType } from '../../../../types';
 
 export const List: React.FC<{ usersData: UserDataType[] }> = ({ usersData }) => {

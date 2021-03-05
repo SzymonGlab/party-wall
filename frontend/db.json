@@ -617,22 +617,13 @@
       "quantity": 1
     },
     {
-      "id": "dcbb7f03-0d03-41ba-9771-4180a6736f5f",
-      "name": "Food test",
-      "price": "300",
-      "quantity": "3",
+      "id": "42798ce0-5953-48d1-8a6c-c3991af0d696",
+      "name": "Popcorn",
+      "price": "15",
+      "quantity": "4",
       "userId": "snuY70aaMPT7GyeGySBHL3Ykg1s1",
-      "weight": "20",
-      "description": "random description"
-    },
-    {
-      "id": "e406a520-9fa2-4659-893c-f89712853cf1",
-      "name": "Food test 2",
-      "price": "20",
-      "quantity": "20",
-      "userId": "snuY70aaMPT7GyeGySBHL3Ykg1s1",
-      "weight": "20",
-      "description": "desc"
+      "weight": "300",
+      "description": "Delicious popcorn"
     }
   ],
   "drink": [
@@ -1275,6 +1266,14 @@
       "userId": 8,
       "price": 13,
       "quantity": 3
+    },
+    {
+      "id": "db1b2c4c-2bc5-408b-b203-49a72b6c35e9",
+      "name": "Nestea",
+      "price": "20",
+      "quantity": "5",
+      "userId": "snuY70aaMPT7GyeGySBHL3Ykg1s1",
+      "volume": "1000"
     }
   ]
 }

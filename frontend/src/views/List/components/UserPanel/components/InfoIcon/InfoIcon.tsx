@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import { omit } from 'lodash';
 import { FaClipboardList } from 'react-icons/fa';
 
 import { DrinkType, FoodType } from '../../../../../../types';
 import './InfoIcon.css';
+import { CustomTooltip } from '../../../../../../components/CustomTooltip';
 
-const Tooltip: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
+const ItemInfo: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
     <div id="tooltip-wrapper">
         <p id="tooltip-header"> Information </p>
         <div>
@@ -23,18 +23,7 @@ const Tooltip: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
 );
 
 export const InfoIcon: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
-    <>
-        <div id="icon" data-for={`${item.name}-${item.id}`} data-tip="">
-            <FaClipboardList />
-        </div>
-        <ReactTooltip
-            multiline
-            id={`${item.name}-${item.id}`}
-            effect="solid"
-            place="left"
-            backgroundColor="#00cfcf"
-            textColor="#121212"
-            getContent={() => <Tooltip item={item} />}
-        />
-    </>
+    <CustomTooltip id={`${item.name}-${item.id}`} content={<ItemInfo item={item} />}>
+        <FaClipboardList />
+    </CustomTooltip>
 );

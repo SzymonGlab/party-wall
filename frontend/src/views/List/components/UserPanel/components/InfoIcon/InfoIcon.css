@@ -1,5 +1,7 @@
 #icon {
-    margin-right: 5px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
 }
 
 #tooltip-wrapper {
@@ -12,7 +14,7 @@
     display: grid;
     grid-template-columns: 80px 1fr;
     font-size: 0.9rem;
-    z-index: 1000;
+    grid-gap: 5px;
 }
 
 #tooltip-header {
