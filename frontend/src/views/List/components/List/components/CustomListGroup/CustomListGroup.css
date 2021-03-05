@@ -1,0 +1,41 @@
+.list-item-element {
+    padding-top: 2px;
+}
+
+.list-group-item {
+    min-height: 160px !important ;
+}
+
+.price-tag {
+    bottom: 10px;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 10px;
+}
+
+.quantity-tag {
+    bottom: 10px;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 20px;
+}
+
+.name-tag {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+#custom-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    opacity: 95%;
+}
+
+#custom-list-title {
+    padding: 0 1.25rem;
+}
+
+#no-items-info {
+    font-size: 1.3rem;
+}

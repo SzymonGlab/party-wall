@@ -17,8 +17,8 @@ export const fetchUsersData = async (): Promise<UserDataType[]> => {
 
         return mergedUsersData;
     } catch (error) {
-        toast.error(error.message);
-        throw error;
+        toast.error(`FETCH USERS: ${error.message}`);
+        return [];
     }
 };
 
@@ -30,7 +30,7 @@ export const fetchUserData = async (currentUserId: string): Promise<UserDataType
 
         return { ...user.data, drink: [...drinks.data], food: [...food.data] };
     } catch (error) {
-        toast.error(error.message);
+        toast.error(`FETCH USER DATA: ${error.message}`);
         throw error;
     }
 };

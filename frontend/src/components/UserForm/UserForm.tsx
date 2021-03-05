@@ -12,7 +12,7 @@ export const UserForm: React.FC<UserFormProps> = ({ title, onSubmit, onViewChang
             <Form onSubmit={onSubmit.action}>
                 <Form.Group controlId="username">
                     <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" placeholder="Enter username" />
+                    <Form.Control type="text" placeholder="Username" />
                     <Form.Text className="text-muted">Other users will see you username.</Form.Text>
                 </Form.Group>
                 <Form.Group controlId="password">
