@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
 import { AddFormController } from '../../../../components/AddFormController';
 import { AuthContext } from '../../../../components/AuthProvider';
 import { CustomModal } from '../../../../components/CustomModal';
@@ -9,8 +8,7 @@ import { fetchUserData } from '../../../../utils/fetchUtils';
 import { signOut } from '../../../../utils/userUtils';
 import { Logo } from '../../../../components/Logo';
 import { UserListsController } from './components/UserListsController';
-
-import './UserPanel.css';
+import { UserPanelWrapper, UserPic, Username, AddItemButton, SignOutButton } from './elements';
 
 export const CurrentUserContext = React.createContext<
     Partial<{ userData: UserDataType | null; setUserData: (newUserData: UserDataType) => void }>
@@ -39,18 +37,18 @@ export const UserPanel: React.FC = () => {
             <CustomModal title="Add item" onCancel={() => setIsModalOpen(false)} isDisplayed={isModalOpen}>
                 <AddFormController closeModal={() => setIsModalOpen(false)} />
             </CustomModal>
-            <div id="user-panel-wrapper">
+            <UserPanelWrapper>
                 <Logo />
-                <div id="user-pic" />
-                <p id="panel-username">{userData.name}</p>
-                <Button id="add-item" variant="info" onClick={() => setIsModalOpen(true)}>
+                <UserPic />
+                <Username>{userData.name}</Username>
+                <AddItemButton variant="info" onClick={() => setIsModalOpen(true)}>
                     ADD
-                </Button>
+                </AddItemButton>
                 <UserListsController />
-                <Button id="sign-out" variant="info" onClick={signOut} block>
+                <SignOutButton variant="info" onClick={signOut} block>
                     Sign out
-                </Button>
-            </div>
+                </SignOutButton>
+            </UserPanelWrapper>
         </CurrentUserContext.Provider>
     );
 };

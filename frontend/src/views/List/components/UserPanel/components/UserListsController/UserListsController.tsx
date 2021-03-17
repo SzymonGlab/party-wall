@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { CurrentUserContext } from '../..';
 import { Loader } from '../../../../../../components/Loader';
 import { UserItemsList } from '../UserItemsList';
-
-import './UserListsController.css';
+import { Wrapper } from './elements';
 
 export const UserListsController: React.FC = () => {
     const { userData } = useContext(CurrentUserContext);
@@ -15,9 +14,9 @@ export const UserListsController: React.FC = () => {
     const { food, drink } = userData;
 
     return (
-        <div id="wrapper">
+        <Wrapper>
             <UserItemsList title="FOOD" items={food} type="food" />
             <UserItemsList title="DRINKS" items={drink} type="drink" />
-        </div>
+        </Wrapper>
     );
 };

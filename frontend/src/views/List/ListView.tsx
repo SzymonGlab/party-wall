@@ -5,8 +5,8 @@ import { fetchUsersData } from '../../utils/fetchUtils';
 import { UserPanel } from './components/UserPanel';
 import { List } from './components/List';
 
-import './ListView.css';
 import { AuthContext } from '../../components/AuthProvider';
+import { ListViewWrapper } from './elements';
 
 export const ListView: React.FC = () => {
     const { currentUser } = useContext(AuthContext);
@@ -22,10 +22,10 @@ export const ListView: React.FC = () => {
 
     return (
         usersData && (
-            <div id="list-view-wrapper">
+            <ListViewWrapper>
                 <UserPanel />
                 <List usersData={usersData} />
-            </div>
+            </ListViewWrapper>
         )
     );
 };

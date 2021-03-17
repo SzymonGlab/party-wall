@@ -3,36 +3,45 @@ import { ListGroup } from 'react-bootstrap';
 import { omit } from 'lodash';
 
 import { DrinkType, FoodType } from '../../../../../../types';
-import './CustomListGroup.css';
 import { UNITS } from '../../../../../../utils/productUtils';
+import {
+    ListItemElement,
+    PriceTag,
+    QunatityTag,
+    NameTag,
+    CustomListWrapper,
+    CustomListTitle,
+    NoItemsInfo,
+    StyledListGroupItem,
+} from './elements';
 
 export const CustomListGroup: React.FC<{ items: FoodType[] | DrinkType[]; title: string }> = ({ items, title }) => (
-    <div id="custom-list-wrapper">
+    <CustomListWrapper>
         {items.length > 0 ? (
             <>
-                <h5 id="custom-list-title">{title}:</h5>
+                <CustomListTitle>{title}:</CustomListTitle>
                 <ListGroup>
                     {(items as any[]).map((item) => (
-                        <ListGroup.Item key={item.id}>
-                            <p className="name-tag">{item.name}</p>
+                        <StyledListGroupItem key={item.id}>
+                            <NameTag>{item.name}</NameTag>
                             {Object.entries(omit(item, 'userId', 'id', 'price', 'quantity', 'name')).map(
                                 ([key, value]) => (
-                                    <p className="list-item-element" key={key}>
+                                    <ListItemElement key={key}>
                                         <b>{key}:</b> {`${value} ${UNITS[key] || ''}`}
-                                    </p>
+                                    </ListItemElement>
                                 ),
                             )}
-                            <p className="price-tag">
+                            <PriceTag>
                                 {UNITS['price']}
                                 {item.price}
-                            </p>
-                            <p className="quantity-tag">x{item.quantity}</p>
-                        </ListGroup.Item>
+                            </PriceTag>
+                            <QunatityTag>x{item.quantity}</QunatityTag>
+                        </StyledListGroupItem>
                     ))}
                 </ListGroup>
             </>
         ) : (
-            <p id="no-items-info">{`This user doesn't sell any ${title}`}</p>
+            <NoItemsInfo>{`This user doesn't sell any ${title}`}</NoItemsInfo>
         )}
-    </div>
+    </CustomListWrapper>
 );

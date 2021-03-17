@@ -8,7 +8,7 @@ type CustomModalType = {
 };
 
 export const CustomModal: React.FC<CustomModalType> = ({ title, isDisplayed, children, onCancel }) => (
-    <Modal id="modal-wrapper" show={isDisplayed} onHide={onCancel}>
+    <Modal show={isDisplayed} onHide={onCancel}>
         <Modal.Header closeButton>
             <Modal.Title>{title}</Modal.Title>
         </Modal.Header>

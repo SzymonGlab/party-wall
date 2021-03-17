@@ -1,9 +1,0 @@
-#add-item-button {
-    margin-left: auto;
-}
-
-#add-form-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
