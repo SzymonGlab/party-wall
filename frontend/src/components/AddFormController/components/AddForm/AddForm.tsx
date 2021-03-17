@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { UNITS } from '../../../../utils/productUtils';
-
 import { AddFormWrapper, AddItemButton } from './elements';
 
 export const AddForm: React.FC<{

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Redirect, Route, RouteProps } from 'react-router-dom';
 
+import { ListView } from '../../views/List';
 import { LogIn } from '../../views/LogIn';
 import { SignUp } from '../../views/SignUp/SignUp';
-import { ListView } from '../../views/List';
 import { AuthContext } from '../AuthProvider';
 
 type PrivateRouteProps = RouteProps & { component: React.FC };

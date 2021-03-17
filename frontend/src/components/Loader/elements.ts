@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Spinner } from 'react-bootstrap';
+import styled from 'styled-components';
 
 export const LoadingSpinner = styled(Spinner)`
     position: absolute;

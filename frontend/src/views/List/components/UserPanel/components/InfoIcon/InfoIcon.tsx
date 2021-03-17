@@ -1,10 +1,10 @@
-import React from 'react';
 import { omit } from 'lodash';
+import React from 'react';
 import { FaClipboardList } from 'react-icons/fa';
 
-import { DrinkType, FoodType } from '../../../../../../types';
 import { CustomTooltip } from '../../../../../../components/CustomTooltip';
-import { TooltipHeader, TooltipWrapper, TooltipContent } from './elements';
+import { DrinkType, FoodType } from '../../../../../../types';
+import { TooltipContent, TooltipHeader, TooltipWrapper } from './elements';
 
 const ItemInfo: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
     <TooltipWrapper>

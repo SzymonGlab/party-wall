@@ -1,14 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
 import { AddFormController } from '../../../../components/AddFormController';
 import { AuthContext } from '../../../../components/AuthProvider';
 import { CustomModal } from '../../../../components/CustomModal';
-import { UserDataType } from '../../../../types';
 import { Loader } from '../../../../components/Loader';
+import { Logo } from '../../../../components/Logo';
+import { UserDataType } from '../../../../types';
 import { fetchUserData } from '../../../../utils/fetchUtils';
 import { signOut } from '../../../../utils/userUtils';
-import { Logo } from '../../../../components/Logo';
 import { UserListsController } from './components/UserListsController';
-import { UserPanelWrapper, UserPic, Username, AddItemButton, SignOutButton } from './elements';
+import { AddItemButton, SignOutButton, Username, UserPanelWrapper, UserPic } from './elements';
 
 export const CurrentUserContext = React.createContext<
     Partial<{ userData: UserDataType | null; setUserData: (newUserData: UserDataType) => void }>

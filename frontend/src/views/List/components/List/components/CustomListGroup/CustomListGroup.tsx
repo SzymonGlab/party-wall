@@ -1,17 +1,17 @@
+import { omit } from 'lodash';
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import { omit } from 'lodash';
 
 import { DrinkType, FoodType } from '../../../../../../types';
 import { UNITS } from '../../../../../../utils/productUtils';
 import {
+    CustomListTitle,
+    CustomListWrapper,
     ListItemElement,
+    NameTag,
+    NoItemsInfo,
     PriceTag,
     QunatityTag,
-    NameTag,
-    CustomListWrapper,
-    CustomListTitle,
-    NoItemsInfo,
     StyledListGroupItem,
 } from './elements';
 
