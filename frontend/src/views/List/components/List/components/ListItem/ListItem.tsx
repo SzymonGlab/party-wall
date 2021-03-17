@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UserDataType } from '../../../../../../types';
 import { CustomListGroup } from '../CustomListGroup';
-import './ListItem.css';
+import { ListElementWrapper, ListUsername, ListItemsWrapper } from './elements';
 
 export const ListItem: React.FC<{
     userData: UserDataType;
@@ -10,12 +10,12 @@ export const ListItem: React.FC<{
     const { food, drink, name } = userData;
 
     return (
-        <div id="list-element-wrapper">
-            <p id="list-username">{name}</p>
-            <div id="list-items-wrapper">
+        <ListElementWrapper>
+            <ListUsername>{name}</ListUsername>
+            <ListItemsWrapper>
                 <CustomListGroup items={food} title="Food" />
                 <CustomListGroup items={drink} title="Drink" />
-            </div>
-        </div>
+            </ListItemsWrapper>
+        </ListElementWrapper>
     );
 };

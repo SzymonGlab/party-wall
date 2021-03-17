@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import { Icon } from './elements';
 
 export const CustomTooltip: React.FC<{ id: string; content: React.ReactNode }> = ({ id, content, children }) => (
     <>
-        <div id="icon" data-for={id} data-tip="">
+        <Icon data-for={id} data-tip="">
             {children}
-        </div>
+        </Icon>
         <ReactTooltip
             multiline
             id={id}

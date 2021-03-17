@@ -1,26 +1,26 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+
 import { UNITS } from '../../../../utils/productUtils';
 
-import './AddForm.css';
+import { AddFormWrapper, AddItemButton } from './elements';
 
 export const AddForm: React.FC<{
     fields: string[];
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }> = ({ fields, onSubmit }) => (
-    <Form onSubmit={(e) => onSubmit(e)} id="add-form-wrapper">
+    <AddFormWrapper onSubmit={(e: any) => onSubmit(e)}>
         {fields.map((field: string) => (
             <div key={field}>
-                <Form.Group controlId={field.toLowerCase()}>
-                    <Form.Label>
+                <AddFormWrapper.Group controlId={field.toLowerCase()}>
+                    <AddFormWrapper.Label>
                         {field} {UNITS[field.toLowerCase()] ? `(${UNITS[field.toLowerCase()]})` : ''}
-                    </Form.Label>
-                    <Form.Control placeholder={`${field} ...`} />
-                </Form.Group>
+                    </AddFormWrapper.Label>
+                    <AddFormWrapper.Control placeholder={`${field} ...`} />
+                </AddFormWrapper.Group>
             </div>
         ))}
-        <Button id="add-item-button" variant="primary" type="submit">
+        <AddItemButton variant="primary" type="submit">
             ADD
-        </Button>
-    </Form>
+        </AddItemButton>
+    </AddFormWrapper>
 );

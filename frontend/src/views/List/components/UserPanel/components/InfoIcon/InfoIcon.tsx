@@ -3,23 +3,23 @@ import { omit } from 'lodash';
 import { FaClipboardList } from 'react-icons/fa';
 
 import { DrinkType, FoodType } from '../../../../../../types';
-import './InfoIcon.css';
 import { CustomTooltip } from '../../../../../../components/CustomTooltip';
+import { TooltipHeader, TooltipWrapper, TooltipContent } from './elements';
 
 const ItemInfo: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
-    <div id="tooltip-wrapper">
-        <p id="tooltip-header"> Information </p>
+    <TooltipWrapper>
+        <TooltipHeader> Information </TooltipHeader>
         <div>
             {Object.entries(omit(item, 'id', 'userId', 'name')).map(([key, value]) => (
-                <div key={key} id="tooltip-content">
+                <TooltipContent key={key}>
                     <p>
                         <b>{key}:</b>
                     </p>
                     <p>{value}</p>
-                </div>
+                </TooltipContent>
             ))}
         </div>
-    </div>
+    </TooltipWrapper>
 );
 
 export const InfoIcon: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
