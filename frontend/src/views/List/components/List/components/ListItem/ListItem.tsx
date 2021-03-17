@@ -2,7 +2,7 @@ import React from 'react';
 
 import { UserDataType } from '../../../../../../types';
 import { CustomListGroup } from '../CustomListGroup';
-import { ListElementWrapper, ListUsername, ListItemsWrapper } from './elements';
+import { ListElementWrapper, ListItemsWrapper, ListUsername } from './elements';
 
 export const ListItem: React.FC<{
     userData: UserDataType;

@@ -1,13 +1,13 @@
+import produce from 'immer';
 import React, { useContext, useState } from 'react';
 import { ButtonGroup, ToggleButton } from 'react-bootstrap';
-import produce from 'immer';
 
-import { AuthContext } from '../AuthProvider';
-import { sendAddRequest, isFood } from '../../utils/productUtils';
 import { RadioType } from '../../types';
-import { AddForm } from './components/AddForm';
+import { isFood, sendAddRequest } from '../../utils/productUtils';
 import { CurrentUserContext } from '../../views/List/components/UserPanel';
+import { AuthContext } from '../AuthProvider';
 import { Loader } from '../Loader';
+import { AddForm } from './components/AddForm';
 import { ModalContent } from './elements';
 
 const radios: RadioType[] = [

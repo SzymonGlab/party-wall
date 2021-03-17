@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-
-import { UserDataType } from '../../types';
-import { fetchUsersData } from '../../utils/fetchUtils';
-import { UserPanel } from './components/UserPanel';
-import { List } from './components/List';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { AuthContext } from '../../components/AuthProvider';
+import { UserDataType } from '../../types';
+import { fetchUsersData } from '../../utils/fetchUtils';
+import { List } from './components/List';
+import { UserPanel } from './components/UserPanel';
 import { ListViewWrapper } from './elements';
 
 export const ListView: React.FC = () => {

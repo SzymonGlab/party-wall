@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
 import produce, { Draft } from 'immer';
+import React, { useContext } from 'react';
 
+import { Loader } from '../../../../../../components/Loader';
 import { DrinkType, FoodType, SustenanceType, UserDataType } from '../../../../../../types';
 import { sendDeleteRequest } from '../../../../../../utils/productUtils';
-import { Loader } from '../../../../../../components/Loader';
 import { CurrentUserContext } from '../..';
 import { InfoIcon } from '../InfoIcon';
-
 import { ActionWrapper, CollectionName, ListItem, RemoveButton, SingleListWrapper } from './elements';
 
 export const UserItemsList: React.FC<{ items: FoodType[] | DrinkType[]; title: string; type: 'food' | 'drink' }> = ({

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { CurrentUserContext } from '../..';
+
 import { Loader } from '../../../../../../components/Loader';
+import { CurrentUserContext } from '../..';
 import { UserItemsList } from '../UserItemsList';
 import { Wrapper } from './elements';
 
