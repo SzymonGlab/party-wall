@@ -1,9 +1,9 @@
 import React, { useCallback, useContext } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 
+import { signIn } from '../../api/userUtils';
 import { AuthContext } from '../../components/AuthProvider';
 import { UserForm } from '../../components/UserForm';
-import { signIn } from '../../utils/userUtils';
 
 export const LogIn: React.FC = () => {
     const { currentUser } = useContext(AuthContext);

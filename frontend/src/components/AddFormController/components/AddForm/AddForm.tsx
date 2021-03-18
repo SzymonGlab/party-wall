@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { UNITS } from '../../../../utils/productUtils';
+import { UNITS } from '../../../../api/productUtils';
 import { AddFormWrapper, AddItemButton } from './elements';
 
 export const AddForm: React.FC<{
     fields: string[];
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }> = ({ fields, onSubmit }) => (
-    <AddFormWrapper onSubmit={(e: any) => onSubmit(e)}>
+    <AddFormWrapper onSubmit={(e: React.FormEvent<HTMLFormElement>) => onSubmit(e)}>
         {fields.map((field: string) => (
             <div key={field}>
                 <AddFormWrapper.Group controlId={field.toLowerCase()}>
