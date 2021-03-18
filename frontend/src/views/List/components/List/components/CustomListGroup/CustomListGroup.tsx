@@ -2,8 +2,8 @@ import { omit } from 'lodash';
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
+import { UNITS } from '../../../../../../api/productUtils';
 import { DrinkType, FoodType } from '../../../../../../types';
-import { UNITS } from '../../../../../../utils/productUtils';
 import {
     CustomListTitle,
     CustomListWrapper,
@@ -21,7 +21,7 @@ export const CustomListGroup: React.FC<{ items: FoodType[] | DrinkType[]; title:
             <>
                 <CustomListTitle>{title}:</CustomListTitle>
                 <ListGroup>
-                    {(items as any[]).map((item) => (
+                    {items.map((item: DrinkType | FoodType) => (
                         <StyledListGroupItem key={item.id}>
                             <NameTag>{item.name}</NameTag>
                             {Object.entries(omit(item, 'userId', 'id', 'price', 'quantity', 'name')).map(

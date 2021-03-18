@@ -1,12 +1,12 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { signUp } from '../../api/userUtils';
 import { UserForm } from '../../components/UserForm';
-import { signUp } from '../../utils/userUtils';
 
 export const SignUp: React.FC = () => {
     const history = useHistory();
-    const handleSignUp = useCallback((e) => signUp(e, history), [history]);
+    const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => signUp(e, history);
 
     const formProps = {
         title: 'Sign up',

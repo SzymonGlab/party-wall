@@ -2,8 +2,8 @@ import produce from 'immer';
 import React, { useContext, useState } from 'react';
 import { ButtonGroup, ToggleButton } from 'react-bootstrap';
 
+import { isFood, sendAddRequest } from '../../api/productUtils';
 import { RadioType } from '../../types';
-import { isFood, sendAddRequest } from '../../utils/productUtils';
 import { CurrentUserContext } from '../../views/List/components/UserPanel';
 import { AuthContext } from '../AuthProvider';
 import { Loader } from '../Loader';
@@ -36,17 +36,19 @@ export const AddFormController: React.FC<{ closeModal: () => void }> = ({ closeM
         setRadioValue(radios.find((radio) => radio.value === e.currentTarget.value) || radios[0]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        closeModal();
         const newItem = await sendAddRequest(e, radioValue.value, currentUser.uid);
-        const newState = produce(userData, (draftState) => {
-            if (isFood(newItem)) {
-                draftState?.food.push(newItem);
-            } else {
-                draftState?.drink.push(newItem);
-            }
-        });
+        if (newItem) {
+            const newState = produce(userData, (draftState) => {
+                if (isFood(newItem)) {
+                    draftState?.food.push(newItem);
+                } else {
+                    draftState?.drink.push(newItem);
+                }
+            });
 
-        setUserData(newState);
+            setUserData(newState);
+        }
+        closeModal();
     };
 
     return (

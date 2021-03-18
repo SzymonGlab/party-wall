@@ -1,9 +1,8 @@
-import produce, { Draft } from 'immer';
 import React, { useContext } from 'react';
 
+import { sendDeleteRequest } from '../../../../../../api/productUtils';
 import { Loader } from '../../../../../../components/Loader';
-import { DrinkType, FoodType, SustenanceType, UserDataType } from '../../../../../../types';
-import { sendDeleteRequest } from '../../../../../../utils/productUtils';
+import { DrinkType, FoodType, SustenanceType } from '../../../../../../types';
 import { CurrentUserContext } from '../..';
 import { InfoIcon } from '../InfoIcon';
 import { ActionWrapper, CollectionName, ListItem, RemoveButton, SingleListWrapper } from './elements';
@@ -20,9 +19,10 @@ export const UserItemsList: React.FC<{ items: FoodType[] | DrinkType[]; title: s
     }
     const handleRemove = async (sustenance: SustenanceType) => {
         await sendDeleteRequest(sustenance, type);
-        const newUserData = produce(userData, (draftState: Draft<UserDataType>) => {
-            draftState[type] = (draftState[type] as any[]).filter((f: FoodType) => f.id !== sustenance.id);
-        });
+        const newUserData = {
+            ...userData,
+            [type]: (userData[type] as { id: string }[]).filter((f) => f.id !== sustenance.id),
+        };
         setUserData(newUserData);
     };
 
@@ -30,7 +30,7 @@ export const UserItemsList: React.FC<{ items: FoodType[] | DrinkType[]; title: s
         <SingleListWrapper>
             <CollectionName> {title}: </CollectionName>
             {items.length === 0 && <ListItem className="list-item"> Your list is empty :(</ListItem>}
-            {(items as any[]).map((item: FoodType | DrinkType) => (
+            {items.map((item: FoodType | DrinkType) => (
                 <ListItem className="list-item" key={item.id}>
                     <p>{item.name}</p>
                     <ActionWrapper className="action-wrapper">

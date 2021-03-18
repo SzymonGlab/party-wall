@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 
+import { fetchUsersData } from '../../api/fetchUtils';
 import { AuthContext } from '../../components/AuthProvider';
 import { UserDataType } from '../../types';
-import { fetchUsersData } from '../../utils/fetchUtils';
 import { List } from './components/List';
 import { UserPanel } from './components/UserPanel';
 import { ListViewWrapper } from './elements';

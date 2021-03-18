@@ -6,11 +6,11 @@ import { DrinkType, FoodType, UserDataType } from '../types';
 
 export const fetchUsersData = async (): Promise<UserDataType[]> => {
     try {
-        const users = await axios.get(`${API_URL}/users`);
-        const drinks = await axios.get(`${API_URL}/drink`);
-        const food = await axios.get(`${API_URL}/food`);
+        const users = await axios.get<{ id: string; name: string }[]>(`${API_URL}/users`);
+        const drinks = await axios.get<DrinkType[]>(`${API_URL}/drink`);
+        const food = await axios.get<FoodType[]>(`${API_URL}/food`);
 
-        const mergedUsersData = users.data.map((user: { id: string; name: string }) => ({
+        const mergedUsersData = users.data.map((user) => ({
             ...user,
             food: food.data.filter((f: FoodType) => f.userId === user.id),
             drink: drinks.data.filter((drink: DrinkType) => drink.userId === user.id),
@@ -25,11 +25,11 @@ export const fetchUsersData = async (): Promise<UserDataType[]> => {
 
 export const fetchUserData = async (currentUserId: string): Promise<UserDataType> => {
     try {
-        const user = await axios.get(`${API_URL}/users/${currentUserId}`);
-        const drinks = await axios.get(`${API_URL}/users/${currentUserId}/drink`);
-        const food = await axios.get(`${API_URL}/users/${currentUserId}/food`);
+        const user = await axios.get<{ id: string; name: string }>(`${API_URL}/users/${currentUserId}`);
+        const drinks = await axios.get<DrinkType[]>(`${API_URL}/users/${currentUserId}/drink`);
+        const food = await axios.get<FoodType[]>(`${API_URL}/users/${currentUserId}/food`);
 
-        return { ...user.data, drink: [...drinks.data], food: [...food.data] };
+        return { ...user.data, drink: drinks.data, food: food.data };
     } catch (error) {
         toast.error(`FETCH USER DATA: ${error.message}`);
         throw error;

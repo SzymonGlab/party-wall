@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 
+import { fetchUserData } from '../../../../api/fetchUtils';
+import { signOut } from '../../../../api/userUtils';
 import { AddFormController } from '../../../../components/AddFormController';
 import { AuthContext } from '../../../../components/AuthProvider';
 import { CustomModal } from '../../../../components/CustomModal';
 import { Loader } from '../../../../components/Loader';
 import { Logo } from '../../../../components/Logo';
 import { UserDataType } from '../../../../types';
-import { fetchUserData } from '../../../../utils/fetchUtils';
-import { signOut } from '../../../../utils/userUtils';
 import { UserListsController } from './components/UserListsController';
 import { AddItemButton, SignOutButton, Username, UserPanelWrapper, UserPic } from './elements';
 
