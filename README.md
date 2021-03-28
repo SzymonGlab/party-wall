@@ -15,7 +15,7 @@ name and volume. Both drink and food have price and quantity.
 ### As an authenticated user you can:
 
 - see one list of items of both types: food and drinks for all users
-- create a new item (both types)
+- create a new item (both types, with form validation)
 - remove item
 
 ## Setup
