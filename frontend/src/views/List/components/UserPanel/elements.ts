@@ -1,21 +1,23 @@
 import { Button } from 'react-bootstrap';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const UserPanelWrapper = styled.div`
-    align-items: center;
-    background-color: #00091a;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    min-width: 370px;
-    overflow: auto;
-    position: sticky;
-    padding: 30px;
-    top: 0;
-    width: 25%;
-    z-index: 100;
-`;
+export const UserPanelWrapper = styled.div(
+    ({ theme }) => css`
+        align-items: center;
+        background-color: ${theme.colors.primary};
+        color: white;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        min-width: 370px;
+        overflow: auto;
+        position: sticky;
+        padding: 30px;
+        top: 0;
+        width: 25%;
+        z-index: 100;
+    `,
+);
 
 export const UserPic = styled.div`
     background-image: url(../../../../resources/profile.png);

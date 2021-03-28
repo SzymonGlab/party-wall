@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { Dispatch, useContext, useEffect, useState } from 'react';
 
 import { fetchUserData } from '../../../../api/fetchUtils';
 import { signOut } from '../../../../api/userUtils';
-import { AddFormController } from '../../../../components/AddFormController';
 import { AuthContext } from '../../../../components/AuthProvider';
 import { CustomModal } from '../../../../components/CustomModal';
+import { FoodFormController } from '../../../../components/FoodFormController';
 import { Loader } from '../../../../components/Loader';
 import { Logo } from '../../../../components/Logo';
 import { UserDataType } from '../../../../types';
@@ -12,7 +12,7 @@ import { UserListsController } from './components/UserListsController';
 import { AddItemButton, SignOutButton, Username, UserPanelWrapper, UserPic } from './elements';
 
 export const CurrentUserContext = React.createContext<
-    Partial<{ userData: UserDataType | null; setUserData: (newUserData: UserDataType) => void }>
+    Partial<{ userData: UserDataType | null; setUserData: Dispatch<UserDataType> }>
 >({});
 
 export const UserPanel: React.FC = () => {
@@ -36,7 +36,7 @@ export const UserPanel: React.FC = () => {
     return (
         <CurrentUserContext.Provider value={{ userData, setUserData }}>
             <CustomModal title="Add item" onCancel={() => setIsModalOpen(false)} isDisplayed={isModalOpen}>
-                <AddFormController closeModal={() => setIsModalOpen(false)} />
+                <FoodFormController closeModal={() => setIsModalOpen(false)} />
             </CustomModal>
             <UserPanelWrapper>
                 <Logo />

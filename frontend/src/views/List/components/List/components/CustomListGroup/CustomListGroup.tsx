@@ -2,8 +2,8 @@ import { omit } from 'lodash';
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
-import { UNITS } from '../../../../../../api/productUtils';
 import { DrinkType, FoodType } from '../../../../../../types';
+import { UNITS } from '../../../../../../utils/consts';
 import {
     CustomListTitle,
     CustomListWrapper,

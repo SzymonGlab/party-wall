@@ -3,10 +3,15 @@ import { useHistory } from 'react-router-dom';
 
 import { signUp } from '../../api/userUtils';
 import { UserForm } from '../../components/UserForm';
+import { isUserFormData } from '../../utils/typeGuards';
 
 export const SignUp: React.FC = () => {
     const history = useHistory();
-    const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => signUp(e, history);
+    const handleSignUp = (values: Record<string, string>) => {
+        if (isUserFormData(values)) {
+            signUp(values, history);
+        }
+    };
 
     const formProps = {
         title: 'Sign up',

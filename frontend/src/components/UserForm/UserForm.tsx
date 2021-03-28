@@ -1,32 +1,42 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { useTheme } from 'styled-components';
 
-import { UserFormProps } from '../../types';
-import { ButtonsWrapper, FormContainer, FormWrapper, SubmitButton } from './elements';
+import { USER_FORM_FIELDS } from '../../utils/consts';
+import { userFormValidation } from '../../utils/formValidation';
+import { CustomButton } from '../CustomButton';
+import { CustomForm } from '../CustomForm';
+import { ButtonsWrapper, FormContainer, FormWrapper } from './elements';
 
-export const UserForm: React.FC<UserFormProps> = ({ title, onSubmit, onViewChange }) => (
-    <FormContainer>
-        <FormWrapper>
-            <h4>{title}</h4>
-            <Form onSubmit={onSubmit.action}>
-                <Form.Group controlId="username">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" placeholder="Username" />
-                    <Form.Text className="text-muted">Other users will see you username.</Form.Text>
-                </Form.Group>
-                <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <ButtonsWrapper>
-                    <Button variant="outline-info" size="sm" onClick={onViewChange.action}>
-                        {onViewChange.text}
-                    </Button>
-                    <SubmitButton variant="outline-primary" type="submit">
-                        {onSubmit.text}
-                    </SubmitButton>
-                </ButtonsWrapper>
-            </Form>
-        </FormWrapper>
-    </FormContainer>
-);
+type UserFormProps = {
+    title: string;
+    onSubmit: {
+        text: string;
+        action: (values: Record<string, string>) => void;
+    };
+    onViewChange: {
+        text: string;
+        action: () => void;
+    };
+};
+
+export const UserForm: React.FC<UserFormProps> = ({ title, onSubmit, onViewChange }) => {
+    const theme = useTheme();
+
+    return (
+        <FormContainer>
+            <FormWrapper>
+                <h4>{title}</h4>
+                <CustomForm onSubmit={onSubmit.action} fields={USER_FORM_FIELDS} validationSchema={userFormValidation}>
+                    <ButtonsWrapper>
+                        <CustomButton color={theme.colors.secondary} onClick={onViewChange.action}>
+                            {onViewChange.text}
+                        </CustomButton>
+                        <CustomButton color={theme.colors.primary} type="submit">
+                            {onSubmit.text}
+                        </CustomButton>
+                    </ButtonsWrapper>
+                </CustomForm>
+            </FormWrapper>
+        </FormContainer>
+    );
+};

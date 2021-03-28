@@ -1,8 +1,16 @@
+import firebase from 'firebase/app';
 import React, { useEffect, useState } from 'react';
 
 import { firebaseApp } from '../../config';
-import { AuthContextProps, CurrentUserType } from '../../types';
 import { Loader } from '../Loader';
+
+type CurrentUserType = firebase.User | null;
+
+type AuthContextProps = {
+    currentUser: CurrentUserType;
+    pending: boolean;
+    authenticated: boolean;
+};
 
 export const AuthContext = React.createContext<Partial<AuthContextProps>>({});
 

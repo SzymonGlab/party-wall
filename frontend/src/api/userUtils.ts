@@ -1,37 +1,29 @@
 import axios from 'axios';
+import { RouteComponentProps } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { API_URL, firebaseApp } from '../config';
-import { AccountActionType } from '../types';
 
-export const signIn: AccountActionType = async (e, history): Promise<void> => {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-        username: { value: string };
-        password: { value: string };
-    };
+type AccountActionType = (
+    values: { username: string; password: string },
+    history: RouteComponentProps['history'],
+) => Promise<void>;
 
+export const signIn: AccountActionType = async (values, history): Promise<void> => {
     try {
-        await firebaseApp
-            .auth()
-            .signInWithEmailAndPassword(`${target.username.value}@partywall.com`, target.password.value);
+        await firebaseApp.auth().signInWithEmailAndPassword(`${values.username}@partywall.com`, values.password);
         history.push('/');
     } catch (error) {
         toast.error(`SIGN IN: ${error.message}`);
     }
 };
 
-export const signUp: AccountActionType = async (e, history): Promise<void> => {
-    e.preventDefault();
-    const target = e.target as typeof e.target & {
-        username: { value: string };
-        password: { value: string };
-    };
+export const signUp: AccountActionType = async (values, history): Promise<void> => {
     try {
         const resp = await firebaseApp
             .auth()
-            .createUserWithEmailAndPassword(`${target.username.value}@partywall.com`, target.password.value);
-        axios.post(`${API_URL}/users`, { name: target.username.value, id: resp.user?.uid });
+            .createUserWithEmailAndPassword(`${values.username}@partywall.com`, values.password);
+        axios.post(`${API_URL}/users`, { name: values.username, id: resp.user?.uid });
         history.push('/');
     } catch (error) {
         toast.error(`SIGN UP: ${error.message}`);
