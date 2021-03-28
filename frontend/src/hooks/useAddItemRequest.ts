@@ -23,11 +23,7 @@ export const useAddItemRequest: useAddItemRequestType = () => {
 
         try {
             // Send request to API
-            const newProduct = await sendAddRequest(
-                newProductValues,
-                isFood(newProductValues) ? 'food' : 'drink',
-                currentUser.uid,
-            );
+            const newProduct = await sendAddRequest(newProductValues, currentUser.uid);
 
             // Update local state
             const newState = produce(userData, (draftState) => {
