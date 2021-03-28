@@ -16,9 +16,9 @@ export const FoodFormController: React.FC<{ closeModal: () => void }> = ({ close
     const { addItemRequest } = useAddItemRequest();
     const { colors } = useTheme();
 
-    const handleSubmit = async (values: Record<string, string>) => {
+    const handleSubmit = (values: Record<string, string>) => {
         if (isSustenance(values)) {
-            await addItemRequest(values);
+            addItemRequest(values);
             closeModal();
         }
     };

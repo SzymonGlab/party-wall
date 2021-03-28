@@ -3,10 +3,10 @@ import React from 'react';
 import { FaClipboardList } from 'react-icons/fa';
 
 import { CustomTooltip } from '../../../../../../components/CustomTooltip';
-import { DrinkType, FoodType } from '../../../../../../types';
+import { SustenanceType } from '../../../../../../types';
 import { TooltipContent, TooltipHeader, TooltipWrapper } from './elements';
 
-const ItemInfo: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
+const ItemInfo: React.FC<{ item: SustenanceType }> = ({ item }) => (
     <TooltipWrapper>
         <TooltipHeader> Information </TooltipHeader>
         <div>
@@ -22,7 +22,7 @@ const ItemInfo: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
     </TooltipWrapper>
 );
 
-export const InfoIcon: React.FC<{ item: FoodType | DrinkType }> = ({ item }) => (
+export const InfoIcon: React.FC<{ item: SustenanceType }> = ({ item }) => (
     <CustomTooltip id={`${item.name}-${item.id}`} content={<ItemInfo item={item} />}>
         <FaClipboardList />
     </CustomTooltip>

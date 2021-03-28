@@ -1,12 +1,11 @@
-import React, { Dispatch, useContext, useEffect, useState } from 'react';
+import React, { Dispatch, useState } from 'react';
 
-import { fetchUserData } from '../../../../api/fetchUtils';
 import { signOut } from '../../../../api/userUtils';
-import { AuthContext } from '../../../../components/AuthProvider';
 import { CustomModal } from '../../../../components/CustomModal';
 import { FoodFormController } from '../../../../components/FoodFormController';
 import { Loader } from '../../../../components/Loader';
 import { Logo } from '../../../../components/Logo';
+import { useGetUserData } from '../../../../hooks/useGetUserData';
 import { UserDataType } from '../../../../types';
 import { UserListsController } from './components/UserListsController';
 import { AddItemButton, SignOutButton, Username, UserPanelWrapper, UserPic } from './elements';
@@ -16,20 +15,10 @@ export const CurrentUserContext = React.createContext<
 >({});
 
 export const UserPanel: React.FC = () => {
-    const { currentUser } = useContext(AuthContext);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [userData, setUserData] = useState<UserDataType | null>(null);
+    const { userData, setUserData } = useGetUserData();
 
-    useEffect(() => {
-        const fetch = async () => {
-            if (currentUser) {
-                setUserData(await fetchUserData(currentUser?.uid));
-            }
-        };
-        fetch();
-    }, []);
-
-    if (!currentUser || !userData || !setUserData) {
+    if (!userData || !setUserData) {
         return <Loader />;
     }
 

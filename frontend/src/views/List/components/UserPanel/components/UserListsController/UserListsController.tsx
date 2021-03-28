@@ -16,8 +16,8 @@ export const UserListsController: React.FC = () => {
 
     return (
         <Wrapper>
-            <UserItemsList title="FOOD" items={food} type="food" />
-            <UserItemsList title="DRINKS" items={drink} type="drink" />
+            <UserItemsList title="FOOD" items={food} />
+            <UserItemsList title="DRINKS" items={drink} />
         </Wrapper>
     );
 };
