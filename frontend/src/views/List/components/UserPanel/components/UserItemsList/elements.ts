@@ -1,20 +1,24 @@
 import { Button } from 'react-bootstrap';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const CollectionName = styled.h5`
-    border-bottom: 1px solid #f1f1f1f1;
-    padding-bottom: 5px;
-`;
+export const CollectionName = styled.h5(
+    ({ theme }) => css`
+        border-bottom: 1px solid ${theme.colors.white};
+        padding-bottom: 5px;
+    `,
+);
 
-export const ListItem = styled.div`
-    align-items: center;
-    border-radius: 10px;
-    background-color: #001936;
-    display: flex;
-    height: 55px;
-    margin-top: 7px;
-    padding: 15px;
-`;
+export const ListItem = styled.div(
+    ({ theme }) => css`
+        align-items: center;
+        border-radius: 10px;
+        background-color: ${theme.colors.elements};
+        display: flex;
+        height: 55px;
+        margin-top: 7px;
+        padding: 15px;
+    `,
+);
 
 export const RemoveButton = styled(Button)`
     margin-left: auto;
