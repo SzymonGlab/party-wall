@@ -1,8 +1,9 @@
 import React from 'react';
 
+import { List } from '../../components/List';
+import { UserPanel } from '../../containers/UserPanel';
+import { UserDataProvider } from '../../context/UserDataProvider';
 import { useGetUsersData } from '../../hooks/useGetUsersData';
-import { List } from './components/List';
-import { UserPanel } from './components/UserPanel';
 import { ListViewWrapper } from './elements';
 
 export const ListView: React.FC = () => {
@@ -11,7 +12,9 @@ export const ListView: React.FC = () => {
     return (
         usersData && (
             <ListViewWrapper>
-                <UserPanel />
+                <UserDataProvider>
+                    <UserPanel />
+                </UserDataProvider>
                 <List usersData={usersData} />
             </ListViewWrapper>
         )
