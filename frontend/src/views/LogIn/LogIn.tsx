@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 
-import { signIn } from '../../api/userUtils';
-import { AuthContext } from '../../components/AuthProvider';
-import { UserForm } from '../../components/UserForm';
+import { signIn } from '../../api/userData';
+import { UserForm } from '../../containers/UserForm';
+import { AuthContext, AuthContextType } from '../../context/AuthProvider';
 import { isUserFormData } from '../../utils/typeGuards';
 
 export const LogIn: React.FC = () => {
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser } = useContext(AuthContext) as AuthContextType;
     const history = useHistory();
     const handleSignIn = (values: Record<string, string>) => {
         if (isUserFormData(values)) {

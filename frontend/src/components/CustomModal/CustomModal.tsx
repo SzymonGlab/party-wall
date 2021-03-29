@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
+
+import { StyledModal, StyledModalBody, StyledModalHeader } from './elements';
 
 type CustomModalType = {
     onCancel: () => void;
@@ -8,10 +9,10 @@ type CustomModalType = {
 };
 
 export const CustomModal: React.FC<CustomModalType> = ({ title, isDisplayed, children, onCancel }) => (
-    <Modal show={isDisplayed} onHide={onCancel}>
-        <Modal.Header closeButton>
-            <Modal.Title>{title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{children}</Modal.Body>
-    </Modal>
+    <StyledModal show={isDisplayed} onHide={onCancel}>
+        <StyledModalHeader closeButton>
+            <StyledModal.Title>{title}</StyledModal.Title>
+        </StyledModalHeader>
+        <StyledModalBody>{children}</StyledModalBody>
+    </StyledModal>
 );

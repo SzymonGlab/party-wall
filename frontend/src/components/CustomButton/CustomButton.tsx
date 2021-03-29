@@ -4,14 +4,15 @@ import { ButtonProps } from 'react-bootstrap';
 import { Loader } from '../Loader';
 import { StyledButton } from './elements';
 
-export const CustomButton: React.FC<{ isLoading?: boolean; color: string } & ButtonProps> = ({
+export const CustomButton: React.FC<{ isLoading?: boolean; color?: string; transparent?: boolean } & ButtonProps> = ({
     isLoading = false,
+    transparent = false,
     children,
     color,
     ...props
 }) => {
     return (
-        <StyledButton color={color} {...props}>
+        <StyledButton color={color} transparent={transparent} {...props}>
             {isLoading ? <Loader /> : children}
         </StyledButton>
     );

@@ -2,19 +2,19 @@ import produce from 'immer';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 
-import { sendAddRequest } from '../api/productUtils';
-import { AuthContext } from '../components/AuthProvider';
+import { sendAddRequest } from '../api/productsData';
+import { AuthContext, AuthContextType } from '../context/AuthProvider';
+import { UserDataContext, UserDataContextType } from '../context/UserDataProvider';
 import { DrinkType, FoodType, SustenanceType } from '../types';
 import { isFood } from '../utils/typeGuards';
-import { CurrentUserContext } from '../views/List/components/UserPanel';
 
 type useAddItemRequestType = () => {
     addItemRequest: (newProduct: SustenanceType) => void;
 };
 
 export const useAddItemRequest: useAddItemRequestType = () => {
-    const { currentUser } = useContext(AuthContext);
-    const { userData, setUserData } = useContext(CurrentUserContext);
+    const { currentUser } = useContext(AuthContext) as AuthContextType;
+    const { userData, setUserData } = useContext(UserDataContext) as UserDataContextType;
 
     const addItemRequest = async (newProductValues: FoodType | DrinkType) => {
         if (!currentUser || !userData || !setUserData) {

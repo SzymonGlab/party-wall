@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { signUp } from '../../api/userUtils';
-import { UserForm } from '../../components/UserForm';
+import { signUp } from '../../api/userData';
+import { UserForm } from '../../containers/UserForm';
 import { isUserFormData } from '../../utils/typeGuards';
 
 export const SignUp: React.FC = () => {
